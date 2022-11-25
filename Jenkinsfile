@@ -4,10 +4,16 @@ pipeline {
     stages {
         stage('stage 1') {
             steps {
-                sh '''who
-                pwd
-                ip address
+                sh '''cat >> some.text << \'END\'
+                some stuff here
+                more stuff
+                END'''
+                sh '''
+                who >> some.text
+                pwd >> some.text
+                ip address >> some.text
                 '''
+                archiveArtifacts artifacts: 'some.text', followSymlinks: false
             }
         }
         stage('stage 2') {
