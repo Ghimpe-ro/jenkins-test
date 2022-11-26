@@ -4,21 +4,18 @@ pipeline {
     stages {
         stage('stage 1') {
             steps {
-                sh '''cat >> some.text << \'END\'
-                some stuff here
-                more stuff
-                END'''
                 sh '''
+                w >> some.txt
                 who >> some.text
+                whoami >> some.text
                 pwd >> some.text
-                ip address >> some.text
+                docker ps
                 '''
                 archiveArtifacts artifacts: 'some.text', followSymlinks: false
             }
         }
         stage('stage 2') {
             steps {
-                sh 'whoami'
                 sh 'pwd'
                 sh 'ls -al'
             }
