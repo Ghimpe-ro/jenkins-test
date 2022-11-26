@@ -5,7 +5,7 @@ pipeline {
         stage('stage 1') {
             steps {
                 sh '''
-                w >> some.txt
+                w > some.txt
                 who >> some.text
                 whoami >> some.text
                 pwd >> some.text
