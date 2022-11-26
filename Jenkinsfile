@@ -9,7 +9,6 @@ pipeline {
                 who >> some.text
                 whoami >> some.text
                 pwd >> some.text
-                sudo docker ps
                 '''
                 archiveArtifacts artifacts: 'some.text', followSymlinks: false
             }
