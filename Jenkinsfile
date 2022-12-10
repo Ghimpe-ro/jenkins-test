@@ -34,7 +34,7 @@ pipeline {
                 pwd >> ${export_file}
                 echo '----------------------' >> ${export_file}
                 echo 'ls -al command' >> ${export_file}
-                ls -al ${export_file}
+                ls -al >> ${export_file}
                 echo '----------------------' >> ${export_file}
                 '''
                 archiveArtifacts artifacts: env.export_file, followSymlinks: false
