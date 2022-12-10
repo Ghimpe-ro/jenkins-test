@@ -8,7 +8,7 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')    
         }
         environment{
-            export_file = "some.txt"
+            export_file = "some_1.txt"
 
         }
 
@@ -26,7 +26,7 @@ pipeline {
                 whoami >> ${export_file}
                 pwd >> ${export_file}
                 '''
-                archiveArtifacts artifacts: '${export_file}', followSymlinks: false
+                archiveArtifacts artifacts: ${export_file}, followSymlinks: false
             }
         }
         stage('stage 2') {
