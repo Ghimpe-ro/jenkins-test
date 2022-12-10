@@ -22,24 +22,19 @@ pipeline {
                 echo params.CHOICE
                 sh '''
                 echo ${export_file}
-                echo 'w'
-                w
+                echo 'w' >> ${export_file}
                 w > ${export_file}
                 echo '----------------------' >> ${export_file}
-                echo 'who'
-                who
+                echo 'who' >> ${export_file}
                 who >> ${export_file}
                 echo '----------------------' >> ${export_file}
-                echo 'whoami'
-                whoami
+                echo 'whoami' >> ${export_file}
                 whoami >> ${export_file}
                 echo '----------------------' >> ${export_file}
-                echo 'pwd'
-                pwd
+                echo 'pwd' >> ${export_file}
                 pwd >> ${export_file}
                 echo '----------------------' >> ${export_file}
-                echo 'ls -al'
-                ls -al
+                echo 'ls -al' >> ${export_file}
                 ls -al ${export_file}
                 '''
                 archiveArtifacts artifacts: env.export_file, followSymlinks: false
@@ -47,6 +42,7 @@ pipeline {
         }
         stage('stage 2') {
             steps {
+                echo params.CHOICE
                 echo 'pwd'
                 sh 'pwd'
                 echo 'ls -al'
