@@ -36,6 +36,7 @@ pipeline {
                 echo '----------------------' >> ${export_file}
                 echo 'ls -al' >> ${export_file}
                 ls -al ${export_file}
+                ls -al
                 '''
                 archiveArtifacts artifacts: env.export_file, followSymlinks: false
             }
