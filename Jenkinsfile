@@ -51,6 +51,7 @@ pipeline {
                 echo 'ls -al'
                 sh 'ls -al'
             }
-        }
+        }        
     }
+    cleanWs()
 }
