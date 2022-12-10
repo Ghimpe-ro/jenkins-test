@@ -22,8 +22,8 @@ pipeline {
                 echo params.CHOICE
                 sh '''
                 echo ${export_file}
-                echo 'w' >> ${export_file}
-                w > ${export_file}
+                echo 'w' > ${export_file}
+                w >> ${export_file}
                 echo '----------------------' >> ${export_file}
                 echo 'who' >> ${export_file}
                 who >> ${export_file}
@@ -41,6 +41,9 @@ pipeline {
             }
         }
         stage('stage 2') {
+            options {
+                timeout(time: 10, unit: 'MINUTES') 
+            }
             steps {
                 echo params.CHOICE
                 echo 'pwd'
