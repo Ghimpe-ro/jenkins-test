@@ -26,15 +26,19 @@ pipeline {
                 echo 'w'
                 w
                 w > ${export_file}
+                echo '----------------------' > ${export_file}
                 echo 'who'
                 who
                 who >> ${export_file}
+                echo '----------------------' > ${export_file}
                 echo 'whoami'
                 whoami
                 whoami >> ${export_file}
+                echo '----------------------' > ${export_file}
                 echo 'pwd'
                 pwd
                 pwd >> ${export_file}
+                echo '----------------------' > ${export_file}
                 echo 'ls -al'
                 ls -al
                 ls -al ${export_file}
