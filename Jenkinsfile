@@ -8,7 +8,7 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')    
         }
         environment{
-            export_file = "some_1.txt"
+            export_file = "some.txt"
 
         }
 
@@ -16,10 +16,11 @@ pipeline {
         stage('stage 1') {
             when { expression { return params.TOGGLE } }
             options {
-                timeout(time: 1, unit: 'HOURS') 
+                timeout(time: 10, unit: 'MINUTES') 
             }
             steps {
                 sh '''
+                echo ${export_file}
                 rm -f ${export_file}
                 w > ${export_file}
                 who >> ${export_file}
