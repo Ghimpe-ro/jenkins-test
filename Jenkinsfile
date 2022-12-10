@@ -21,19 +21,27 @@ pipeline {
             steps {
                 sh '''
                 echo ${export_file}
+                echo 'remove old file'
                 rm -f ${export_file}
+                echo 'w'
                 w > ${export_file}
+                echo 'who'
                 who >> ${export_file}
+                echo 'whoami'
                 whoami >> ${export_file}
+                echo 'pwd'
                 pwd >> ${export_file}
-                dir
+                echo 'ls -al'
+                ls -al
                 '''
                 archiveArtifacts artifacts: env.export_file, followSymlinks: false
             }
         }
         stage('stage 2') {
             steps {
+                echo 'pwd'
                 sh 'pwd'
+                echo 'ls -al'
                 sh 'ls -al'
             }
         }
