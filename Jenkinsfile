@@ -25,8 +25,9 @@ pipeline {
                 who >> ${export_file}
                 whoami >> ${export_file}
                 pwd >> ${export_file}
+                dir
                 '''
-                archiveArtifacts artifacts: '${export_file}', followSymlinks: false
+                archiveArtifacts artifacts: env.export_file, followSymlinks: false
             }
         }
         stage('stage 2') {
