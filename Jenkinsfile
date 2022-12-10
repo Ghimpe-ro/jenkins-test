@@ -39,6 +39,11 @@ pipeline {
                 '''
                 archiveArtifacts artifacts: env.export_file, followSymlinks: false
             }
+            post {
+                always {
+                    cleanWs()
+                }
+            }
         }
         stage('stage 2') {
             options {
@@ -53,5 +58,4 @@ pipeline {
             }
         }        
     }
-    cleanWs()
 }
