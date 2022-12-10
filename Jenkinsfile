@@ -21,22 +21,21 @@ pipeline {
             steps {
                 echo params.CHOICE
                 sh '''
-                echo ${export_file}
-                echo 'w' > ${export_file}
+                echo 'w command' > ${export_file}
                 w >> ${export_file}
                 echo '----------------------' >> ${export_file}
-                echo 'who' >> ${export_file}
+                echo 'who command' >> ${export_file}
                 who >> ${export_file}
                 echo '----------------------' >> ${export_file}
-                echo 'whoami' >> ${export_file}
+                echo 'whoami command' >> ${export_file}
                 whoami >> ${export_file}
                 echo '----------------------' >> ${export_file}
-                echo 'pwd' >> ${export_file}
+                echo 'pwd command' >> ${export_file}
                 pwd >> ${export_file}
                 echo '----------------------' >> ${export_file}
-                echo 'ls -al' >> ${export_file}
+                echo 'ls -al command' >> ${export_file}
                 ls -al ${export_file}
-                ls -al
+                echo '----------------------' >> ${export_file}
                 '''
                 archiveArtifacts artifacts: env.export_file, followSymlinks: false
             }
