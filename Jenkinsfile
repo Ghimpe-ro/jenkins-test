@@ -23,7 +23,7 @@ pipeline {
                     subject: "STARTED: Job '${env.JOB_NAME}'",
                     body: """<p>STARTED: Job '${env.JOB_NAME}':</p>
                     <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME}</a>&QUOT;</p>""",
-                    recipientProviders: emailextrecipients([culprits(), requestor()])
+                    to: 'daniel.lupu@ghimpe.ro')
                     )
                 emailext (
                     body: 'Test Message',
@@ -58,7 +58,7 @@ pipeline {
                         subject: "SUCCESSFUL: Job '${env.JOB_NAME}'",
                         body: """<p>SUCCESSFUL: Job '${env.JOB_NAME}':</p>
                         <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME}</a>&QUOT;</p>""",
-                        recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+                        to: 'daniel.lupu@ghimpe.ro'
                         )
                     }
             }
