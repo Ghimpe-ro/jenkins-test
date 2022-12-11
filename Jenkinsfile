@@ -24,10 +24,10 @@ pipeline {
                     body: """<p>STARTED: Job '${env.JOB_NAME}':</p>
                     <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME}</a>&QUOT;</p>""",
                     to: 'daniel.lupu@ghimpe.ro')
-                emailext (
-                    body: 'Test Message',
-                    subject: 'Test Subject',
-                    to: 'daniel.lupu@ghimpe.ro')
+                // emailext (
+                //     body: 'Test Message',
+                //     subject: 'Test Subject',
+                //     to: 'daniel.lupu@ghimpe.ro')
                 echo params.CHOICE
                 sh '''
                 echo 'w command' > ${export_file}
