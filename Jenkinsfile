@@ -25,7 +25,6 @@ pipeline {
                     <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME}</a>&QUOT;</p>""",
                     recipientProviders: [[$class: 'DevelopersRecipientProvider']]
                     )
-                }
                 echo params.CHOICE
                 sh '''
                 echo 'w command' > ${export_file}
